@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gopi Bhavana Rao - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0e9e9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    overflow-x: hidden;
+    margin: 0; /* Explicitly set body margin to 0 */
+}
+
+header {
+    background-color: #e1e6eb;
+    color: #4389bb;
+    padding: 20px; /* Keep a general padding */
+    position: fixed;
+    width: 100vw; /* Set width to 100% of the viewport width */
+    left: 0;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 769px) {
+    header {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    nav {
+        display: none;
+    }
+}
+
+    header div {
+        font-weight: bold;
+        /* Adjusted font size to be slightly larger relative to the base */
+        font-size: 1.4rem;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        color: #4389bb;
+        text-decoration: none;
+        font-weight: bold;
+        /* Adjusted font size to be relative to the base */
+        font-size: 1.1rem;
+        transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+        opacity: 0.9;
+    }
+
+    .container {
+        margin: 0 ;
+        padding: 80px 0px 40px 0px; /* Adjusted top padding to account for fixed header */
+        flex: 1;
+        width: 100%;
+    }
+
+    section {
+        margin: 60px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #4389bb, #f0f8ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 0; /* Ensure no extra spacing */
+    box-shadow: none;
+    border-radius: 0;
+}
+
+    .circle-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #007BFF;
+        margin-bottom: 20px;
+    }
+
+    .circle-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero h1 {
+        /* Adjusted font size */
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        /* Adjusted font size */
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-buttons a {
+        /* Inherit font size from body or adjust slightly */
+        font-size: 1em;
+        padding: 12px 24px;
+        text-decoration: none;
+        color: white;
+        background-color: #007BFF;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .hero-buttons a:hover {
+        background-color: #0056b3;
+    }
+
+    .scroll-down {
+        position: absolute;
+        bottom: 20px;
+        /* Adjusted font size */
+        font-size: 2rem;
+        color: #007BFF;
+        animation: bounce 2s infinite;
+        text-decoration: none;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(10px);
+        }
+    }
+
+    h2 {
+        font-size: 2em; /* Increased heading size */
+        color: #007BFF;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .projects, .skills, .education {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 0 1 calc(33.333% - 20px);
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        max-width: calc(33.333% - 20px);
+        /* Increased font size within cards */
+        font-size: 1em;
+    }
+
+    .card h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #007BFF;
+        /* Increased card heading size */
+        font-size: 1.3em;
+    }
+
+    #contact {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #contact form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        gap: 15px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #contact input,
+    #contact textarea {
+        width: 100%;
+        max-width: 600px;
+        padding: 12px; /* Slightly increased padding */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        /* Increased font size in form elements */
+        font-size: 1em;
+    }
+
+    #contact button {
+        padding: 12px 24px; /* Slightly increased padding */
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        /* Increased button font size */
+        font-size: 1.1em;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #007BFF;
+        color: white;
+        margin-top: 40px;
+        width: 100%;
+        /* Increased footer font size */
+        font-size: 1em;
+    }
+
+    footer a {
+        color: white;
+        margin: 0 10px;
+        /* Inherit font size */
+        font-size: 1em;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            /* Adjust base font size for smaller screens if needed */
+            font-size: 15px;
+            /* overflow-x: auto; */ /* MODIFIED: Removed to allow global overflow-x: hidden to take effect */
+        }
+
+        header div {
+            font-size: 1.3rem;
+        }
+
+        nav {
+            display: none; /* MODIFIED: Hide navigation links on small screens */
+            /* The following rules become mostly irrelevant as nav is hidden */
+            /* margin-top: 10px; */
+            /* justify-content: center; */
+            /* width: 100%; */
+            /* display: flex; */ /* Already set globally, but hidden now */
+        }
+
+        nav a {
+            /* font-size: 1rem; */ /* Irrelevant if nav is hidden */
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        .card {
+            font-size: 0.95em;
+        }
+
+        .card h3 {
+            font-size: 1.2em;
+        }
+
+        .projects, .skills, .education {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .card {
+            flex: 0 1 100%;
+            max-width: 100%;
+        }
+
+        /* nav styling for small screens (now hidden)
+        nav {
+            margin-top: 10px;
+            justify-content: center;
+            width: 100%;
+            display: flex;
+        }
+        */
+
+        header {
+            align-items: flex-start;
+        }
+
+        .circle-image {
+            width: 120px;
+            height: 120px;
+        }
+
+        #contact form {
+            padding: 15px;
+        }
+
+        #contact input,
+        #contact textarea {
+            font-size: 0.95em;
+        }
+
+        #contact button {
+            font-size: 1em;
+        }
+
+        footer {
+            font-size: 0.9em;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+
+<header>
+    <div>Gopi Bhavana Rao</div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="hero">
+        <div class="circle-image">
+            <img src="/templates/images/bhavana1.jpg" alt="Gopi Bhavana Rao">
+        </div>
+        <h1>Hi, I'm Gopi Bhavana Rao</h1>
+        <p>Web Developer | AI/ML Enthusiast | Tech Explorer</p>
+        <div class="hero-buttons">
+            <a href="/templates/images/gopi_bhavana_resume.pdf" class="button" target="_blank">Download Resume</a>
+            <a href="#contact" class="button">Hire Me</a>
+        </div>
+        <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div style="text-align: center; padding: 0 100px;">
+            <p>
+                I’m a web development enthusiast with a strong interest in both front-end and back-end
+                technologies. I enjoy creating websites that are clean, responsive, and easy to use. I have a good
+                understanding of HTML, CSS, and JavaScript, and I’m always learning new tools to improve my
+                skills.
+                I’m currently pursuing a B.Tech in Artificial Intelligence and Machine Learning, and I’ve also
+                completed certifications in AI and Machine Learning. These experiences have helped me understand
+                how different technologies work together.
+                I’m eager to work on real-world projects, grow as a developer, and be part of a team where I can
+                learn and contribute at the same time.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <i class="fas fa-brain fa-2x" style="color:#007BFF;"></i>
+                <h3>Human Stress Detection</h3>
+                <p>Achieved 99.2% accuracy using Decision Trees and advanced ML techniques.</p>
+                <a href="https://github.com/bhavana-022/Human-Stress-Detection-in-and-through-Sleep"
+                   target="_blank">View on GitHub</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-mobile-alt fa-2x" style="color:#28a745;"></i>
+                <h3>One Tap</h3>
+                <p>Emergency alert Android app. Developed UI and connection logic using Java.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-robot fa-2x" style="color:#6f42c1;"></i>
+                <h3>AI ChatBot</h3>
+                <p>Chatbot that supports PDFs and images. Built in Python.</p>
+                <a href="https://github.com/bhavana-022/aichatbot" target="_blank">View on GitHub</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code fa-2x" style="color:#007BFF;"></i>
+                <h3>Personal Portfolio</h3>
+                <p>A showcase of my web development skills, including a detailed resume, projects, and contact
+                    form.</p>
+                <a href="https://github.com/bhavana-022/personal-portfolio" target="_blank">View on GitHub</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-search fa-2x" style="color:#28a745;"></i>
+                <h3>Lost and Found</h3>
+                <p>A web app built with Flask, HTML, Bootstrap, and MySQL for users to report and search lost
+                    items.</p>
+                <a href="https://github.com/bhavana-022/lost-and-found" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="card">
+                <i class="fas fa-code fa-2x" style="color:#007BFF;"></i>
+                <h3>Languages</h3>
+                <p>C, Java, Python</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-html5 fa-2x" style="color:#e44d26;"></i>
+                <h3>Frontend</h3>
+                <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-server fa-2x" style="color:#28a745;"></i>
+                <h3>Backend</h3>
+                <p>Java, Node.js</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-database fa-2x" style="color:#6c757d;"></i>
+                <h3>Databases</h3>
+                <p>MySQL, Oracle</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-android fa-2x" style="color:#3DDC84;"></i>
+                <h3>Mobile</h3>
+                <p>Android (Java)</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cogs fa-2x" style="color:#f39c12;"></i>
+                <h3>Spring Boot</h3>
+                <p>Java-based framework for building web applications and RESTful services</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 style="text-align: center;">Education</h2>
+        <div class="education">
+            <div class="card">
+                <i class="fas fa-graduation-cap fa-2x" style="color:#007BFF;"></i>
+                <strong>Jawaharlal Nehru Technological University, Hyderabad</strong><br/>
+                B.Tech in AI & ML (2022–2026)<br/>
+                CGPA: 8.65<br/>
+                <small>Location: Hyderabad, India</small>
+
+            </div>
+
+            <div class="card">
+                <i class="fas fa-graduation-cap fa-2x" style="color:#28a745;"></i>
+                <strong>Government Institute of Electronics</strong><br/>
+                Diploma in Computer Science (2020–2022)<br/>
+                GPA: 9.75<br/>
+                <small>Location: Hyderabad, India</small>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Have a question or want to work together? Send me a message or reach out through social platforms!</p>
+        <form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+<p id="form-response"></p>
+
+    </section>
+</div>
+
+<footer>
+    <div style="margin-bottom: 10px;">
+        <a href="https://github.com/bhavana-022" target="_blank" style="color: white; margin: 0 10px;">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/gopi-bhavana-b819b1255" target="_blank"
+           style="color: white; margin: 0 10px;">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="mailto:gopibhavana31@gmail.com" style="color: white; margin: 0 10px;">
+            <i class="fas fa-envelope fa-lg"></i>
+        </a>
+    </div>
+    &copy; 2025 Gopi Bhavana Rao. All rights reserved.
+</footer>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    const response = await fetch('https://formspree.io/f/xkgrkkgq', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    const result = await response.json();
+    const messageElem = document.getElementById('form-response');
+    if (response.ok) {
+      messageElem.innerText = "Thanks for your message!";
+      messageElem.style.color = "green";
+      form.reset();
+    } else {
+      messageElem.innerText = "Oops! There was a problem.";
+      messageElem.style.color = "red";
+    }
+  });
+</script>
+
+</body>
+</html>
